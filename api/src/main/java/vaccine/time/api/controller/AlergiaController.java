@@ -3,6 +3,7 @@ package vaccine.time.api.controller;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import vaccine.time.api.domain.dto.AlergiaDTO;
 import vaccine.time.api.domain.model.Alergia;
 import vaccine.time.api.domain.service.AlergiaService;
 
@@ -16,12 +17,12 @@ public class AlergiaController {
     private AlergiaService alergiaService;
 
     @PostMapping
-    private Alergia cadastrarAlergia(@RequestBody Alergia alergia) {
-        return alergiaService.cadastrar(alergia);
+    private AlergiaDTO cadastrarAlergia(@RequestBody AlergiaDTO alergiaDTO) {
+        return alergiaService.cadastrar(alergiaDTO);
     }
 
     @GetMapping
-    private List<Alergia> listarAlergias() {
+    private List<AlergiaDTO> listarAlergias() {
         return alergiaService.listar();
     }
 }

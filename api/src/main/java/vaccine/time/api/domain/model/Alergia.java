@@ -2,6 +2,7 @@ package vaccine.time.api.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import vaccine.time.api.domain.dto.AlergiaDTO;
 
 @Entity
 @Table(name = "tb_alergias")
@@ -16,4 +17,9 @@ public class Alergia {
     private Integer id;
 
     private String nome;
+
+    public Alergia(AlergiaDTO alergiaDTO) {
+        this.id = alergiaDTO.id();
+        this.nome = alergiaDTO.nome();
+    }
 }

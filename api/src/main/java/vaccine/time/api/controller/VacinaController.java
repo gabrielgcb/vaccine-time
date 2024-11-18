@@ -2,6 +2,7 @@ package vaccine.time.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import vaccine.time.api.domain.dto.VacinaDTO;
 import vaccine.time.api.domain.model.Agenda;
 import vaccine.time.api.domain.model.Vacina;
 import vaccine.time.api.domain.service.AgendaService;
@@ -17,12 +18,12 @@ public class VacinaController {
     private VacinaService vacinaService;
 
     @PostMapping
-    private Vacina cadastrarVacina(@RequestBody Vacina vacina) {
+    private VacinaDTO cadastrarVacina(@RequestBody VacinaDTO vacina) {
         return vacinaService.cadastrar(vacina);
     }
 
     @GetMapping
-    private List<Vacina> listarVacinas() {
+    private List<VacinaDTO> listarVacinas() {
         return vacinaService.listar();
     }
 }

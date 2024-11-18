@@ -1,10 +1,13 @@
 package vaccine.time.api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import vaccine.time.api.domain.dto.UsuarioDTO;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -25,7 +28,7 @@ public class Usuario {
 
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
-    private char sexo;
+    private Character sexo;
 
     @Embedded
     private Endereco endereco;
@@ -39,6 +42,14 @@ public class Usuario {
     private List<Alergia> alergias;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     private List<Agenda> agendas;
 
+    public Usuario(UsuarioDTO usuarioDTO) {
+        this.nome = usuarioDTO.nome();
+        this.dataNascimento = usuarioDTO.dataNascimento();
+        this.sexo = usuarioDTO.sexo();
+        this.endereco = usuarioDTO.endereco();
+        this.alergias = usuarioDTO.alergias();
+    }
 }

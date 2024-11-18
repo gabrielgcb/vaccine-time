@@ -1,10 +1,9 @@
 package vaccine.time.api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import vaccine.time.api.domain.dto.AgendaDTO;
 import vaccine.time.api.domain.enums.SituacaoAgenda;
 
 import java.time.LocalDate;
@@ -14,6 +13,7 @@ import java.util.Date;
 @Entity
 @Table(name = "tb_agendas")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -28,7 +28,7 @@ public class Agenda {
     private SituacaoAgenda situacao;
 
     @Column(name = "data_situacao")
-    private Date dataSituacao;
+    private LocalDate dataSituacao;
     private String observacoes;
 
     @ManyToOne
@@ -39,4 +39,13 @@ public class Agenda {
     @JoinColumn(name = "vacina_id")
     private Vacina vacina;
 
+    public Agenda(AgendaDTO agendaDTO) {
+        this.data = agendaDTO.data();
+        this.hora = agendaDTO.hora();
+        this.situacao = SituacaoAgenda.AGENDADO;
+        this.dataSituacao = agendaDTO.dataSituacao();
+        this.observacoes = agendaDTO.observacoes();
+        this.usuario = new Usuario(agendaDTO.usuario());
+        this.vacina = new Vacina(agendaDTO.vacina());
+    }
 }

@@ -2,6 +2,9 @@ package vaccine.time.api.controller;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import vaccine.time.api.domain.dto.AlergiaDTO;
 import vaccine.time.api.domain.model.Alergia;
@@ -22,7 +25,7 @@ public class AlergiaController {
     }
 
     @GetMapping
-    private List<AlergiaDTO> listarAlergias() {
-        return alergiaService.listar();
+    private Page<AlergiaDTO> listarAlergias(@PageableDefault(size = 10, sort = {"id"}) Pageable paginacao) {
+        return alergiaService.listar(paginacao);
     }
 }

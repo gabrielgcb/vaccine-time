@@ -1,6 +1,9 @@
 package vaccine.time.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import vaccine.time.api.domain.dto.VacinaDTO;
 import vaccine.time.api.domain.model.Agenda;
@@ -23,7 +26,7 @@ public class VacinaController {
     }
 
     @GetMapping
-    private List<VacinaDTO> listarVacinas() {
-        return vacinaService.listar();
+    private Page<VacinaDTO> listarVacinas(@PageableDefault(size = 10, sort = {"id"}) Pageable paginacao) {
+        return vacinaService.listar(paginacao);
     }
 }

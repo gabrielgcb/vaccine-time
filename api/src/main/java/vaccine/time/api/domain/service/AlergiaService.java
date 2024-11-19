@@ -1,6 +1,8 @@
 package vaccine.time.api.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vaccine.time.api.domain.dto.AlergiaDTO;
@@ -23,9 +25,8 @@ public class AlergiaService {
         return new AlergiaDTO(alergia);
     }
 
-    public List<AlergiaDTO> listar() {
-        return alergiaRepository.findAll().stream()
-                .map(AlergiaDTO::new)
-                .collect(Collectors.toList());
+    public Page<AlergiaDTO> listar(Pageable paginacao) {
+        Page<Alergia> pagina = alergiaRepository.findAll(paginacao);
+        return pagina.map(AlergiaDTO::new);
     }
 }

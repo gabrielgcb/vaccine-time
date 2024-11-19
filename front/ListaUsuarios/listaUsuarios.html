@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="listaUsuarios.css">
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+    <table id="usuariosTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Sexo</th>
+                <th>Cidade</th>
+                <th>UF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas serão preenchidas dinamicamente -->
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button id="prevPage">Página Anterior</button>
+        <span id="currentPage">1</span>
+        <button id="nextPage">Próxima Página</button>
+    </div>
+    <script src="listaUsuarios.js"></script>
+</body>
+</html>

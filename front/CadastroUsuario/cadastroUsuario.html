@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastroUsuario.css">
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Usuário</h1>
+        <form id="usuarioForm">
+            <label>Nome:</label>
+            <input type="text" id="nome" required>
+            <label>Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" required>
+            <label>Sexo:</label>
+            <select id="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+            <fieldset>
+                <legend>Endereço</legend>
+                <input type="text" id="logradouro" placeholder="Logradouro" required>
+                <input type="text" id="numero" placeholder="Número" required>
+                <input type="text" id="setor" placeholder="Setor" required>
+                <input type="text" id="cidade" placeholder="Cidade" required>
+                <input type="text" id="estado" placeholder="Estado" required>
+                <input type="text" id="uf" placeholder="UF" required>
+            </fieldset>
+            <label>Alergias:</label>
+            <select id="alergias" multiple></select>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div id="feedback"></div>
+    </div>
+    <script src="cadastroUsuario.js"></script>
+</body>
+</html>

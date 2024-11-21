@@ -1,34 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
+/* Fixando a Sidebar à esquerda */
+.w3-sidebar {
+    position: fixed; /* Torna a sidebar fixa */
+    top: 0;
+    left: 0;
+    height: 100%; /* Faz a sidebar ocupar toda a altura da página */
+    z-index: 1; /* Garante que a sidebar fique acima do conteúdo */
 }
 
-.container {
-    text-align: center;
-    background: #ffffff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+/* Adicionando um espaço ao conteúdo da página para que não fique oculto pela sidebar */
+.w3-container {
+    margin-left: 160px; /* Espaço para a sidebar fixa */
 }
 
-.menu button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+/* Estilo para os botões do accordion */
+.w3-button {
+    text-align: left; /* Alinha os botões à esquerda */
 }
 
-.menu button:hover {
-    background-color: #0056b3;
+/* Estilo para os links do accordion */
+.w3-bar-item {
+    padding-left: 20px;
+}
+
+.btn-home {
+    text-decoration: none !important;
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Vacinas</title>
+    <link rel="stylesheet" href="listaVacinas.css">
+</head>
+<body>
+    <h1>Lista de Vacinas</h1>
+    <table id="vacinasTable">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Doses</th>
+                <th>Periodiocidade</th>
+                <th>Intervalo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas serão preenchidas dinamicamente -->
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button id="prevPage">Página Anterior</button>
+        <span id="currentPage">1</span>
+        <button id="nextPage">Próxima Página</button>
+    </div>
+    <script src="listaVacinas.js"></script>
+</body>
+</html>

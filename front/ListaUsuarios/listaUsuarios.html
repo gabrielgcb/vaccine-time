@@ -5,28 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuários</title>
     <link rel="stylesheet" href="listaUsuarios.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:160px;">
+
+    <a href="../index.html" class="w3-button w3-block w3-left-align btn-home">Home</a>
+
+    <!-- Link de Usuários -->
+    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc()">
+        Usuários <i class="fa fa-caret-down"></i>
+    </button>
+
+    <!-- Accordion para Usuários -->
+    <div id="demoAcc" class="w3-hide w3-white w3-card">
+        <a href="../CadastroUsuario/cadastroUsuario.html" class="w3-bar-item w3-button">Cadastrar Usuário</a>
+        <a href="listaUsuarios.html" class="w3-bar-item w3-button">Lista de Usuários</a>
+    </div>
+
+    <!-- Link de Consultas -->
+    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc2()">
+        Agendas <i class="fa fa-caret-down"></i>
+    </button>
+
+    <!-- Accordion para Consultas -->
+    <div id="demoAcc2" class="w3-hide w3-white w3-card">
+        <a href="../CadastroAgenda/cadastroAgenda.html" class="w3-bar-item w3-button">Agendar Vacina</a>
+        <a href="../ListaAgendas/listaAgendas.html" class="w3-bar-item w3-button">Lista de Agendas</a>
+    </div>
+
+    <!-- Link de Especialidades -->
+    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
+        Especialidades <i class="fa fa-caret-down"></i>
+    </button>
+
+    <!-- Accordion para Especialidades -->
+    <div id="demoAcc3" class="w3-hide w3-white w3-card">
+        <a href="#" class="w3-bar-item w3-button">Cadastrar Especialidade</a>
+        <a href="#" class="w3-bar-item w3-button">Lista de Especialidades</a>
+    </div>
+
+    <!-- Mais Links -->
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
+
     <h1>Lista de Usuários</h1>
-    <table id="usuariosTable">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Sexo</th>
-                <th>Cidade</th>
-                <th>UF</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Linhas serão preenchidas dinamicamente -->
-        </tbody>
-    </table>
+    <div class="usuariosTable-container">
+        <table id="usuariosTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Sexo</th>
+                    <th>Cidade</th>
+                    <th>UF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas serão preenchidas dinamicamente -->
+            </tbody>
+        </table>
+    </div>
     <div class="pagination">
         <button id="prevPage">Página Anterior</button>
         <span id="currentPage">1</span>
         <button id="nextPage">Próxima Página</button>
     </div>
     <script src="listaUsuarios.js"></script>
+    <script src="../index.js"></script>
 </body>
 </html>

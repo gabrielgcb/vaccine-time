@@ -32,7 +32,7 @@ function carregarVacinas() {
             data.content.forEach(vacina => {
                 const option = document.createElement('option');
                 option.value = vacina.id;
-                option.textContent = vacina.nome; // Assumindo que a vacina tem o campo `nome`
+                option.textContent = vacina.titulo; // Assumindo que a vacina tem o campo `nome`
                 vacinaSelect.appendChild(option);
             });
         })
@@ -48,7 +48,6 @@ document.getElementById('agendaForm').addEventListener('submit', function (event
 
     const data = document.getElementById('data').value;
     const hora = document.getElementById('hora').value;
-    const dataSituacao = document.getElementById('dataSituacao').value;
     const observacoes = document.getElementById('observacoes').value;
     const usuarioId = document.getElementById('usuario').value;
     const vacinaId = document.getElementById('vacina').value;
@@ -56,7 +55,6 @@ document.getElementById('agendaForm').addEventListener('submit', function (event
     const agendaData = {
         data: data,
         hora: hora,
-        dataSituacao: dataSituacao,
         observacoes: observacoes,
         usuario: { id: usuarioId },
         vacina: { id: vacinaId }

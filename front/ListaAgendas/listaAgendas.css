@@ -34,3 +34,12 @@ th {
     margin: 5px;
     cursor: pointer;
 }
+
+.agendasTable-container {
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1000px;
+}

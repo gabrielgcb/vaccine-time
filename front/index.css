@@ -5,11 +5,28 @@
     left: 0;
     height: 100%; /* Faz a sidebar ocupar toda a altura da página */
     z-index: 1; /* Garante que a sidebar fique acima do conteúdo */
+    color: #000 !important;
+    background-color: #f1f1f1 !important;
+    border: 1px solid black;
+    border-radius: 10px 0 0 10px;
+    width:180px;
 }
 
 /* Adicionando um espaço ao conteúdo da página para que não fique oculto pela sidebar */
 .w3-container {
     margin-left: 160px; /* Espaço para a sidebar fixa */
+    background-image: url('assets/medical-background.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left:200px
+}
+
+.w3-container h2, p {
+    margin: 40px 20px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
 }
 
 /* Estilo para os botões do accordion */
@@ -24,4 +41,5 @@
 
 .btn-home {
     text-decoration: none !important;
+    margin-top: 10px;
 }

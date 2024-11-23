@@ -1,3 +1,4 @@
+/* Estilo geral */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -6,10 +7,11 @@ body {
     background-image: url('../assets/medical-background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 160vh;
     background-position: center;
+    height: 100vh;
 }
 
+/* Contêiner */
 .container {
     max-width: 500px;
     margin: auto;
@@ -17,26 +19,34 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    left: 5%;
     position: relative;
+    left: 5%;
+    top: 10%;
 }
 
-h1 {
+/* Títulos */
+h1, h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Estilo dos campos e botões */
 label {
     display: block;
-    margin: 10px 0 0;
+    margin: 10px 0 5px;
 }
 
-input, select, button {
+input, button {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 16px;
+}
+
+#nomeAlergia {
+    margin-bottom: 15px;
 }
 
 button {
@@ -44,25 +54,19 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+/* Feedback */
 #feedback {
     text-align: center;
     margin-top: 20px;
-}
-
-input, select, button, fieldset {
-    margin: 0 0 10px 0 !important;
-    padding: 8px;
-    font-size: 16px;
-}
-
-fieldset > input {
-    max-width: 49%;
+    color: #4CAF50;
+    font-weight: bold;
 }
 
 /* Estilo para organizar os checkboxes em uma grade */
@@ -71,7 +75,6 @@ fieldset > input {
     flex-wrap: wrap;
     gap: 10px; /* Espaçamento entre os itens */
     margin-top: 10px;
-    margin-bottom: 30px;
 }
 
 .checkbox-grid div {

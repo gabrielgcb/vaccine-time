@@ -1,10 +1,19 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-image: url('../assets/medical-background.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
 }
 
 h1 {
     text-align: center;
+    color: white;
+    position: relative;
+    left: 5%;
 }
 
 table {
@@ -17,16 +26,18 @@ table th, table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    background-color: white;
 }
 
-th {
-    background-color: #f4f4f4;
+table th {
+    background-color: #b8b8b8;
     font-weight: bold;
 }
 
 .pagination {
     text-align: center;
-    margin: 20px 0;
+    position: relative;
+    left: 5%;
 }
 
 .pagination button {
@@ -35,11 +46,16 @@ th {
     cursor: pointer;
 }
 
+#currentPage {
+    color: white;
+}
+
 .agendasTable-container {
-    display: flex
-;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     max-width: 1000px;
+    position: relative;
+    left: 5%;
 }

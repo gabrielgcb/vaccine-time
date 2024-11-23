@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuários</title>
+    <title>Vaccine Time | Lista de Usuários</title>
     <link rel="stylesheet" href="listaUsuarios.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
     <!-- Sidebar -->
@@ -36,16 +37,16 @@
         <a href="../ListaAgendas/listaAgendas.html" class="w3-bar-item w3-button">Lista de Agendas</a>
     </div>
 
-    <!-- Link de Especialidades -->
-    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
-        Especialidades <i class="fa fa-caret-down"></i>
-    </button>
+  <!-- Link de Especialidades -->
+  <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
+    Alergias <i class="fa fa-caret-down"></i>
+  </button>
 
-    <!-- Accordion para Especialidades -->
-    <div id="demoAcc3" class="w3-hide w3-white w3-card">
-        <a href="#" class="w3-bar-item w3-button">Cadastrar Especialidade</a>
-        <a href="#" class="w3-bar-item w3-button">Lista de Especialidades</a>
-    </div>
+  <!-- Accordion para Especialidades -->
+  <div id="demoAcc3" class="w3-hide w3-white w3-card">
+    <a href="../CadastroAlergia/cadastroAlergia.html" class="w3-bar-item w3-button">Cadastrar Alergias</a>
+    <a href="../ListaAlergias/listaAlergias.html" class="w3-bar-item w3-button">Lista de Alergia</a>
+  </div>
 
     <!-- Mais Links -->
     <a href="#" class="w3-bar-item w3-button">Link 2</a>
@@ -62,6 +63,8 @@
                     <th>Sexo</th>
                     <th>Cidade</th>
                     <th>UF</th>
+                    <th>Ações</th>
+
                 </tr>
             </thead>
             <tbody>

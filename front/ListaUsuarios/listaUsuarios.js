@@ -1,7 +1,7 @@
 let currentPage = 0;
 
 function loadUsuarios(page) {
-    fetch(`http://127.0.0.1:8080/usuarios?page=${page}`)
+    fetch(`http://127.0.0.1:8080/usuarios?page=${page}&sort=nome`)
         .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector("#usuariosTable tbody");

@@ -5,13 +5,13 @@ body {
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 110vh;
     background-position: center;
 }
 
 h1 {
     text-align: center;
     color: white;
+    margin-left: 12% !important;
 }
 
 table {
@@ -35,62 +35,39 @@ table th {
 .pagination {
     text-align: center;
     margin: 0;
+    margin-left: 12% !important;
 }
 
 .pagination button {
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
+    
 }
 
 #currentPage {
     color: white;
 }
 
-.usuariosTable-container {
+.alergiasTable-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     max-width: 1000px;
-    left: 5%;
+    left: 7%;
     position: relative;
 }
 
 /* Fixando a Sidebar à esquerda */
 .w3-sidebar {
-    position: fixed; /* Torna a sidebar fixa */
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100%; /* Faz a sidebar ocupar toda a altura da página */
-    z-index: 1; /* Garante que a sidebar fique acima do conteúdo */
+    height: 100%;
+    z-index: 1;
     color: #000 !important;
     background-color: #f1f1f1 !important;
     border: 1px solid black;
     border-radius: 10px 0 0 10px;
 }
-
-/* Adicionando um espaço ao conteúdo da página para que não fique oculto pela sidebar */
-.w3-container {
-    margin-left: 160px; /* Espaço para a sidebar fixa */
-    background-image: url('assets/medical-background.jpg');
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.w3-container h2, p {
-    margin: 40px 20px;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-/* Estilo para os botões do accordion */
-.w3-button {
-    text-align: left; /* Alinha os botões à esquerda */
-}
-
-/* Estilo para os links do accordion */
-.w3-bar-item {
-    padding-left: 20px;
-}       

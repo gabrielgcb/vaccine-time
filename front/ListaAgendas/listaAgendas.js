@@ -1,7 +1,7 @@
 let currentPage = 0;
 
 function loadAgendas(page) {
-    fetch(`http://127.0.0.1:8080/agendas?page=${page}`)
+    fetch(`http://127.0.0.1:8080/agendas?page=${page}&sort=data`)
         .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector("#agendasTable tbody");
@@ -15,6 +15,7 @@ function loadAgendas(page) {
                     <td>${agenda.usuario.nome}</td>
                     <td>${agenda.vacina.titulo}</td>
                     <td>${agenda.observacoes}</td>
+                    <td>${agenda.situacao}</td>
                 `;
                 tableBody.appendChild(row);
             });

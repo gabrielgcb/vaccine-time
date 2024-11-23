@@ -1,25 +1,50 @@
 const apiBaseURL = 'http://localhost:8080';
 
+// Carrega alergias ao carregar a página
 function carregarAlergias() {
     fetch(`${apiBaseURL}/alergias`)
         .then(response => response.json())
         .then(data => {
-            const alergiasSelect = document.getElementById('alergias');
-            alergiasSelect.innerHTML = '';
+            const alergiasContainer = document.getElementById('alergias');
+            alergiasContainer.innerHTML = ''; // Limpa as opções existentes
+
+            if (data.content.length === 0) {
+                alergiasContainer.textContent = 'Nenhuma alergia cadastrada';
+                return;
+            }
+
             data.content.forEach(alergia => {
-                const option = document.createElement('option');
-                option.value = alergia.id;
-                option.textContent = alergia.nome;
-                alergiasSelect.appendChild(option);
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `alergia-${alergia.id}`;
+                checkbox.value = alergia.id;
+
+                const label = document.createElement('label');
+                label.htmlFor = `alergia-${alergia.id}`;
+                label.textContent = alergia.nome;
+
+                const div = document.createElement('div');
+                div.appendChild(checkbox);
+                div.appendChild(label);
+
+                alergiasContainer.appendChild(div);
             });
         })
         .catch(error => {
             console.error('Erro ao carregar alergias:', error);
+            const alergiasContainer = document.getElementById('alergias');
+            alergiasContainer.textContent = 'Erro ao carregar alergias';
         });
 }
 
+// Envia os dados do formulário para o backend
 document.getElementById('usuarioForm').addEventListener('submit', function (event) {
     event.preventDefault();
+
+    const alergiasSelecionadas = Array.from(document.querySelectorAll('#alergias input[type="checkbox"]:checked'))
+        .map(checkbox => ({
+            id: parseInt(checkbox.value, 10)
+        }));
 
     const usuario = {
         nome: document.getElementById('nome').value,
@@ -33,9 +58,7 @@ document.getElementById('usuarioForm').addEventListener('submit', function (even
             estado: document.getElementById('estado').value,
             uf: document.getElementById('uf').value
         },
-        alergias: Array.from(document.getElementById('alergias').selectedOptions).map(option => ({
-            id: option.value
-        }))
+        alergias: alergiasSelecionadas
     };
 
     fetch(`${apiBaseURL}/usuarios`, {
@@ -49,7 +72,9 @@ document.getElementById('usuarioForm').addEventListener('submit', function (even
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error('Erro ao cadastrar usuário');
+                return response.text().then(text => {
+                    throw new Error(text || 'Erro ao cadastrar usuário');
+                });
             }
         })
         .then(data => {
@@ -57,9 +82,10 @@ document.getElementById('usuarioForm').addEventListener('submit', function (even
             console.log(data);
         })
         .catch(error => {
-            document.getElementById('feedback').textContent = 'Erro ao cadastrar usuário.';
+            document.getElementById('feedback').textContent = `Erro ao cadastrar usuário: ${error.message}`;
             console.error(error);
         });
 });
 
+// Carrega as alergias quando a página estiver pronta
 document.addEventListener('DOMContentLoaded', carregarAlergias);

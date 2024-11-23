@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Cadastro de Usuário</title>
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <title>Vaccine Time | Cadastro de Usuário</title>
 </head>
 <body>
     <!-- Sidebar -->
@@ -37,16 +38,16 @@
         <a href="../ListaAgendas/listaAgendas.html" class="w3-bar-item w3-button">Lista de Agendas</a>
     </div>
 
-    <!-- Link de Especialidades -->
-    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
-        Especialidades <i class="fa fa-caret-down"></i>
-    </button>
+  <!-- Link de Especialidades -->
+  <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
+    Alergias <i class="fa fa-caret-down"></i>
+  </button>
 
-    <!-- Accordion para Especialidades -->
-    <div id="demoAcc3" class="w3-hide w3-white w3-card">
-        <a href="#" class="w3-bar-item w3-button">Cadastrar Especialidade</a>
-        <a href="#" class="w3-bar-item w3-button">Lista de Especialidades</a>
-    </div>
+  <!-- Accordion para Especialidades -->
+  <div id="demoAcc3" class="w3-hide w3-white w3-card">
+    <a href="../CadastroAlergia/cadastroAlergia.html" class="w3-bar-item w3-button">Cadastrar Alergias</a>
+    <a href="../ListaAlergias/listaAlergias.html" class="w3-bar-item w3-button">Lista de Alergia</a>
+  </div>
 
     <!-- Mais Links -->
     <a href="#" class="w3-bar-item w3-button">Link 2</a>
@@ -74,8 +75,9 @@
                 <input type="text" id="estado" placeholder="Estado" required>
                 <input type="text" id="uf" placeholder="UF" required>
             </fieldset>
-            <label>Alergias:</label>
-            <select id="alergias" multiple></select>
+            <label>Alergia(s) (Selecione se houver): </label>
+            <div id="alergias" class="checkbox-grid"></div>
+        
             <button type="submit">Cadastrar</button>
         </form>
         <div id="feedback"></div>

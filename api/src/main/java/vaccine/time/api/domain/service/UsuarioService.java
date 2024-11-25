@@ -12,6 +12,7 @@ import vaccine.time.api.domain.repository.AlergiaRepository;
 import vaccine.time.api.domain.repository.UsuarioRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,5 +44,16 @@ public class UsuarioService {
     public Page<UsuarioDTO> obterTodos(Pageable paginacao) {
         Page<Usuario> pagina = usuarioRepository.findAll(paginacao);
         return pagina.map(UsuarioDTO::new);
+    }
+
+    @Transactional
+    public Optional<String> excluir(Integer id) {
+        Optional<Usuario> buscaId = usuarioRepository.findById(id);
+        if(buscaId.isPresent()) {
+            usuarioRepository.deleteById(id);
+            return ("Usuario " + buscaId.get().getNome() + " excluído com sucesso").describeConstable();
+        } else {
+            return "Id não encontrado".describeConstable();
+        }
     }
 }

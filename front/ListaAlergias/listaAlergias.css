@@ -32,6 +32,21 @@ table th {
     font-weight: bold;
 }
 
+#coluna-acoes {
+    max-width: 10px !important;
+    text-align: center;
+}
+
+.lixeira {
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+}
+
+.lixeira:hover {
+    color: darkred;
+}
+
 .pagination {
     text-align: center;
     margin: 0;

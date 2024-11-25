@@ -12,6 +12,7 @@ import vaccine.time.api.domain.repository.UsuarioRepository;
 import vaccine.time.api.domain.service.UsuarioService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -28,5 +29,10 @@ public class UsuarioController {
     @GetMapping
     public Page<UsuarioDTO> listarUsuarios(@PageableDefault(size = 10, sort = {"id"}) Pageable paginacao) {
         return usuarioService.obterTodos(paginacao);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    private Optional<String> excluirUsuario(@PathVariable Integer id) {
+        return usuarioService.excluir(id);
     }
 }

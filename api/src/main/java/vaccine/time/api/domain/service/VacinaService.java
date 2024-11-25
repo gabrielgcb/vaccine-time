@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vaccine.time.api.domain.dto.VacinaDTO;
 import vaccine.time.api.domain.model.Agenda;
+import vaccine.time.api.domain.model.Usuario;
 import vaccine.time.api.domain.model.Vacina;
 import vaccine.time.api.domain.repository.AgendaRepository;
 import vaccine.time.api.domain.repository.VacinaRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,5 +32,16 @@ public class VacinaService {
     public Page<VacinaDTO> listar(Pageable paginacao) {
         Page<Vacina> pagina = vacinaRepository.findAll(paginacao);
         return pagina.map(VacinaDTO::new);
+    }
+
+    @Transactional
+    public Optional<String> excluir(Integer id) {
+        Optional<Vacina> buscaId = vacinaRepository.findById(id);
+        if(buscaId.isPresent()) {
+            vacinaRepository.deleteById(id);
+            return ("Vacina " + buscaId.get().getTitulo() + " excluída com sucesso").describeConstable();
+        } else {
+            return "Id não encontrado".describeConstable();
+        }
     }
 }

@@ -11,6 +11,7 @@ import vaccine.time.api.domain.model.Alergia;
 import vaccine.time.api.domain.service.AlergiaService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/alergias")
@@ -27,5 +28,10 @@ public class AlergiaController {
     @GetMapping
     private Page<AlergiaDTO> listarAlergias(@PageableDefault(size = 10, sort = {"id"}) Pageable paginacao) {
         return alergiaService.listar(paginacao);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    private Optional<String> excluirAlergia(@PathVariable Integer id) {
+        return alergiaService.excluir(id);
     }
 }

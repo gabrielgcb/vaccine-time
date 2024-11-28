@@ -11,9 +11,7 @@ import vaccine.time.api.domain.model.Usuario;
 import vaccine.time.api.domain.repository.AlergiaRepository;
 import vaccine.time.api.domain.repository.UsuarioRepository;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {

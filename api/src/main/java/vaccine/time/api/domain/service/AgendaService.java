@@ -14,6 +14,8 @@ import vaccine.time.api.domain.repository.AgendaRepository;
 import vaccine.time.api.domain.service.agenda.AgendaAgendador;
 import vaccine.time.api.domain.service.agenda.AgendaValidador;
 
+import java.time.LocalDate;
+
 @Service
 public class AgendaService {
 
@@ -56,5 +58,21 @@ public class AgendaService {
         return pagina.map(AgendaDTO::new);
     }
 
+    @Transactional
+    public AgendaDTO atualizar(Integer id, SituacaoAgenda novaSituacao) {
+        Agenda agenda = agendaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Agenda não encontrada com o id: " + id));
+
+        agenda.setSituacao(novaSituacao);
+        agenda.setDataSituacao(LocalDate.now());
+        agendaRepository.save(agenda);
+
+        return new AgendaDTO(agenda);
+    }
+
+    public Page<AgendaDTO> listarComFiltros(String usuarioNome, String vacinaTitulo, Pageable paginacao) {
+        Page<Agenda> pagina = agendaRepository.buscarComFiltros(usuarioNome, vacinaTitulo, paginacao);
+        return pagina.map(AgendaDTO::new);
+    }
 
 }

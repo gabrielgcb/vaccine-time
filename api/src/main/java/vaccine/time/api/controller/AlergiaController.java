@@ -1,16 +1,15 @@
 package vaccine.time.api.controller;
 
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vaccine.time.api.domain.dto.AlergiaDTO;
-import vaccine.time.api.domain.model.Alergia;
 import vaccine.time.api.domain.service.AlergiaService;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,17 +20,20 @@ public class AlergiaController {
     private AlergiaService alergiaService;
 
     @PostMapping
-    private AlergiaDTO cadastrarAlergia(@RequestBody AlergiaDTO alergiaDTO) {
-        return alergiaService.cadastrar(alergiaDTO);
+    private ResponseEntity<AlergiaDTO> cadastrarAlergia(@RequestBody AlergiaDTO alergiaDTO) {
+        AlergiaDTO alergiaCadastrada = alergiaService.cadastrar(alergiaDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(alergiaCadastrada);
     }
 
     @GetMapping
-    private Page<AlergiaDTO> listarAlergias(@PageableDefault(size = 10, sort = {"id"}) Pageable paginacao) {
-        return alergiaService.listar(paginacao);
+    private ResponseEntity<Page<AlergiaDTO>> listarAlergias(@PageableDefault(size = 10, sort = {"id"}) Pageable paginacao) {
+        Page<AlergiaDTO> alergias = alergiaService.listar(paginacao);
+        return ResponseEntity.ok(alergias);
     }
 
     @DeleteMapping(value = "/{id}")
-    private Optional<String> excluirAlergia(@PathVariable Integer id) {
-        return alergiaService.excluir(id);
+    private ResponseEntity<Optional<String>> excluirAlergia(@PathVariable Integer id) {
+        Optional<String> alergiaExcluida = alergiaService.excluir(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(alergiaExcluida);
     }
 }

@@ -10,6 +10,7 @@ function loadAlergias(page) {
             data.content.forEach(alergia => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
+                    <td>${alergia.id}</td>
                     <td>${alergia.nome}</td>
                     <td id="coluna-acoes">
                         <i class="fa fa-trash lixeira" onclick="excluirAlergia(${alergia.id})"></i>
@@ -19,6 +20,8 @@ function loadAlergias(page) {
             });
 
             document.getElementById("currentPage").innerText = page + 1;
+            document.getElementById("prevPage").disabled = page === 0;
+            document.getElementById("nextPage").disabled = data.last;
         })
         .catch(error => console.error("Erro ao carregar alergias:", error));
 }

@@ -10,6 +10,7 @@ function loadUsuarios(page) {
             data.content.forEach(usuario => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
+                    <td>${usuario.id}</td>
                     <td>${usuario.nome}</td>
                     <td>${usuario.dataNascimento}</td>
                     <td>${usuario.sexo}</td>
@@ -23,6 +24,8 @@ function loadUsuarios(page) {
             });
 
             document.getElementById("currentPage").innerText = page + 1;
+            document.getElementById("prevPage").disabled = page === 0;
+            document.getElementById("nextPage").disabled = data.last;
         })
         .catch(error => console.error("Erro ao carregar usuários:", error));
 }

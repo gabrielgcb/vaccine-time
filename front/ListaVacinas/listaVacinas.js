@@ -10,6 +10,7 @@ function loadVacinas(page) {
             data.content.forEach(vacina => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
+                    <td>${vacina.id}</td>
                     <td>${vacina.titulo}</td>
                     <td>${vacina.descricao}</td>
                     <td>${vacina.doses}</td>
@@ -22,7 +23,10 @@ function loadVacinas(page) {
                 tableBody.appendChild(row);
             });
 
+            // Atualiza informações da paginação
             document.getElementById("currentPage").innerText = page + 1;
+            document.getElementById("prevPage").disabled = page === 0;
+            document.getElementById("nextPage").disabled = data.last;
         })
         .catch(error => console.error("Erro ao carregar vacinas:", error));
 }

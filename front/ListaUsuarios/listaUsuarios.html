@@ -10,54 +10,63 @@
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:160px;">
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-light-grey w3-card">
 
     <a href="../index.html" class="w3-button w3-block w3-left-align btn-home">Home</a>
-
+  
     <!-- Link de Usuários -->
     <button class="w3-button w3-block w3-left-align" onclick="myAccFunc()">
-        Usuários <i class="fa fa-caret-down"></i>
+      Usuários <i class="fa fa-caret-down"></i>
     </button>
-
+  
     <!-- Accordion para Usuários -->
     <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="../CadastroUsuario/cadastroUsuario.html" class="w3-bar-item w3-button">Cadastrar Usuário</a>
-        <a href="listaUsuarios.html" class="w3-bar-item w3-button">Lista de Usuários</a>
+      <a href="../CadastroUsuario/cadastroUsuario.html" class="w3-bar-item w3-button">Cadastrar Usuários</a>
+      <a href="../ListaUsuarios/listaUsuarios.html" class="w3-bar-item w3-button">Lista de Usuários</a>
     </div>
-
-    <!-- Link de Consultas -->
+  
+    <!-- Link de Agendas -->
     <button class="w3-button w3-block w3-left-align" onclick="myAccFunc2()">
-        Agendas <i class="fa fa-caret-down"></i>
+      Agendas <i class="fa fa-caret-down"></i>
     </button>
-
-    <!-- Accordion para Consultas -->
+  
+    <!-- Accordion para agendas -->
     <div id="demoAcc2" class="w3-hide w3-white w3-card">
-        <a href="../CadastroAgenda/cadastroAgenda.html" class="w3-bar-item w3-button">Agendar Vacina</a>
-        <a href="../ListaAgendas/listaAgendas.html" class="w3-bar-item w3-button">Lista de Agendas</a>
+      <a href="../CadastroAgenda/cadastroAgenda.html" class="w3-bar-item w3-button">Agendar Vacinas</a>
+      <a href="../ListaAgendas/listaAgendas.html" class="w3-bar-item w3-button">Lista de Agendas</a>
     </div>
-
-  <!-- Link de Especialidades -->
-  <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
-    Alergias <i class="fa fa-caret-down"></i>
-  </button>
-
-  <!-- Accordion para Especialidades -->
-  <div id="demoAcc3" class="w3-hide w3-white w3-card">
-    <a href="../CadastroAlergia/cadastroAlergia.html" class="w3-bar-item w3-button">Cadastrar Alergias</a>
-    <a href="../ListaAlergias/listaAlergias.html" class="w3-bar-item w3-button">Lista de Alergia</a>
+  
+    <!-- Link de alergias -->
+    <button class="w3-button w3-block w3-left-align" onclick="myAccFunc3()">
+      Alergias <i class="fa fa-caret-down"></i>
+    </button>
+  
+      <!-- Accordion para alergias -->
+      <div id="demoAcc3" class="w3-hide w3-white w3-card">
+        <a href="../CadastroAlergia/cadastroAlergia.html" class="w3-bar-item w3-button">Cadastrar Alergias</a>
+        <a href="../ListaAlergias/listaAlergias.html" class="w3-bar-item w3-button">Lista de Alergias</a>
+      </div>
+  
+      <!-- Link de vacinas -->
+      <button class="w3-button w3-block w3-left-align" onclick="myAccFunc4()">
+        Vacinas <i class="fa fa-caret-down"></i>
+      </button>
+    
+      <!-- Accordion para vacinas -->
+      <div id="demoAcc4" class="w3-hide w3-white w3-card">
+        <a href="../CadastroVacina/cadastroVacina.html" class="w3-bar-item w3-button">Cadastrar Vacinas</a>
+        <a href="../ListaVacinas/listaVacinas.html" class="w3-bar-item w3-button">Lista de Vacinas</a>
+      </div>
   </div>
-
-    <!-- Mais Links -->
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
-    </div>
 
     <h1>Lista de Usuários</h1>
     <div class="usuariosTable-container">
         <table id="usuariosTable">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>Data de Nascimento</th>
                     <th>Sexo</th>

@@ -1,10 +1,27 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-image: url('../assets/medical-background.jpg');
+    height: 110vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 h1 {
     text-align: center;
+    color: white;
+}
+
+.vacinasTable-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    max-width: 1000px;
+    left: 5%;
+    position: relative;
 }
 
 table {
@@ -17,6 +34,7 @@ table th, table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    background-color: white;
 }
 
 th {
@@ -49,3 +67,45 @@ th {
     margin: 5px;
     cursor: pointer;
 }
+
+#currentPage {
+    color: white;
+}
+
+/* Fixando a Sidebar à esquerda */
+.w3-sidebar {
+    position: fixed; /* Torna a sidebar fixa */
+    top: 0;
+    left: 0;
+    height: 100%; /* Faz a sidebar ocupar toda a altura da página */
+    z-index: 1; /* Garante que a sidebar fique acima do conteúdo */
+    color: #000 !important;
+    background-color: #f1f1f1 !important;
+    border: 1px solid black;
+    border-radius: 10px 0 0 10px;
+}
+
+/* Adicionando um espaço ao conteúdo da página para que não fique oculto pela sidebar */
+.w3-container {
+    margin-left: 160px; /* Espaço para a sidebar fixa */
+    background-image: url('assets/medical-background.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.w3-container h2, p {
+    margin: 40px 20px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Estilo para os botões do accordion */
+.w3-button {
+    text-align: left; /* Alinha os botões à esquerda */
+}
+
+/* Estilo para os links do accordion */
+.w3-bar-item {
+    padding-left: 20px;
+}       

@@ -15,6 +15,7 @@ document.getElementById('alergiaForm').addEventListener('submit', function (even
     })
         .then(response => {
             if (response.ok) {
+                document.getElementById("nomeAlergia").value = "";
                 return response.json();
             } else {
                 throw new Error('Erro ao cadastrar alergia.');
